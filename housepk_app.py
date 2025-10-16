@@ -2,11 +2,16 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
+
+# dev 3
 @app.route('/')
 def home():
+    print("API endpoint accessed")
     return jsonify({
-        "message": "Welcome to House PK Application",
-        "version": "1.0"
+        "message": "House PK API v2.0",
+        "version": "2.0",
+        "endpoints": ["/login", "/dashboard", "/properties", "/health"],
+        "status": "operational"
     })
 
 @app.route('/health')
@@ -22,6 +27,8 @@ def login():
     return jsonify({
         "message": f"User {username} logged in successfully",
         "status": "success"
+    })
+
 # dev 2
 @app.route('/dashboard')
 def dashboard():
