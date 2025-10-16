@@ -13,6 +13,16 @@ def home():
 def health():
     return jsonify({"status": "healthy"})
 
+# dev 1
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    username = data.get('username', 'Guest')
+    print(f"User {username} attempting login")
+    return jsonify({
+        "message": f"User {username} logged in successfully",
+        "status": "success"
+    })
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
